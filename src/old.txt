@@ -1,0 +1,97 @@
+/*
+ * int ledPin = LED_BUILTIN;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  Serial.println("Hello, world!");
+  digitalWrite(ledPin, HIGH);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  delay(500);
+}
+ */
+
+/*
+int buttonPin = 34;
+
+void setup() {
+    // usb setup
+    pinMode(LED_BUILTIN, OUTPUT);
+    pinMode(buttonPin, INPUT);
+    delay(50);
+    digitalWrite(LED_BUILTIN, 0);
+    Serial.begin(115200);
+
+    // wifi setup
+    // WiFi.softAP("here", "test");
+    // WiFi.enableLongRange(true);
+
+    // Serial.println(WiFi.softAPIP());
+}
+
+void loop() {
+    bool button = digitalRead(buttonPin);
+
+    Serial.println(button);
+
+    if (!button) {
+        digitalWrite(LED_BUILTIN, HIGH);
+    }
+    else{
+        digitalWrite(LED_BUILTIN, LOW);
+    }
+}
+ */
+#include <Wire.h>
+
+/*
+void setup() {
+    Wire.begin();
+    Serial.begin(115200);
+    Serial.println("\nI2C Scanner");
+}
+
+void loop() {
+    byte error, address;
+    int nDevices;
+    Serial.println("Scanning...");
+    nDevices = 0;
+    for(address = 1; address < 127; address++ ) {
+        Wire.beginTransmission(address);
+        error = Wire.endTransmission();
+        if (error == 0) {
+            Serial.print("I2C device found at address 0x");
+            if (address<16) {
+                Serial.print("0");
+            }
+            Serial.println(address,HEX);
+            nDevices++;
+        }
+        else if (error==4) {
+            Serial.print("Unknow error at address 0x");
+            if (address<16) {
+                Serial.print("0");
+            }
+            Serial.println(address,HEX);
+        }
+    }
+    if (nDevices == 0) {
+        Serial.println("No I2C devices found\n");
+    }
+    else {
+        Serial.println("done\n");
+    }
+    delay(5000);
+}
+ */
+
+#define BMP_SCK  (13)
+#define BMP_MISO (12)
+#define BMP_MOSI (11)
+#define BMP_CS   (10)
+
+/**/
